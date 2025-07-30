@@ -6,15 +6,15 @@ function AddCard({deck}) {
     const { deckId } = useParams();
 
     const navBar = (
-        <nav>
-            <ol>
-                <li>
+        <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+                <li className="breadcrumb-item">
                     <Link to="/" >Home</Link>
                 </li>
-                <li>
+                <li className="breadcrumb-item">
                     <Link to={`/decks/${deckId}`}>Deck</Link>
                 </li>
-                <li>
+                <li className="breadcrumb-item">
                     {deck.name}
                 </li>
             </ol>

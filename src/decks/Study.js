@@ -37,17 +37,17 @@ function Study({ decks, setDecks }) {
           {isFront ? (
             <div>
               <p>{currentCard.front}</p>
-              <button onClick={handleFlip}>
+              <button onClick={handleFlip} className="btn">
                 Flip
               </button>
             </div>
           ) : (
             <div>
               <p>{currentCard.back}</p>
-              <button onClick={handleFlip}>
+              <button onClick={handleFlip} className="btn">
                 Flip
               </button>
-              <button onClick={handleNext}>
+              <button onClick={handleNext} className="btn">
                 Next
               </button>
             </div>
@@ -96,15 +96,15 @@ function Study({ decks, setDecks }) {
 
     //nav bar
     const navBar = (
-      <nav>
-        <ol>
-          <li >
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="breadcrumb-item">
             <Link to={`/decks/${deckId}`} >{deck.name}</Link>
           </li>
-          <li>Study</li>
+          <li className="breadcrumb-item">Study</li>
         </ol>
       </nav>
     );

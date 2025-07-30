@@ -25,15 +25,15 @@ function EditDeck({ setDecks }) {
 
   const navBar = (
     <div>
-      <nav>
-        <ol>
-          <li>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="breadcrumb-item">
             <Link to={`/decks/${deckId}`}>{deckName}</Link>
           </li>
-          <li>Edit Deck</li>
+          <li className="breadcrumb-item">Edit Deck</li>
         </ol>
       </nav>
     </div>
@@ -70,11 +70,12 @@ function EditDeck({ setDecks }) {
       {navBar}
       <h1>Edit Deck</h1>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">
+      <form className="col" onSubmit={handleSubmit}>
+        <label className="col" htmlFor="name">
           Name
         </label>
         <input
+          className="col"
           placeholder="Name"
           name="name"
           type="text"
@@ -82,10 +83,11 @@ function EditDeck({ setDecks }) {
           value={name}
           required
         />
-        <label htmlFor="description">
+        <label className="col" htmlFor="description">
           Description
         </label>
         <textarea
+          className="col"
           placeholder="Brief description of the deck"
           name="description"
           onChange={handleChange}
@@ -93,10 +95,10 @@ function EditDeck({ setDecks }) {
           required
         />
 
-        <Link to={`../${deckId}`}>
+        <Link to={`../${deckId}`} className="btn btn-red">
           Cancel
         </Link>
-        <button type="submit">
+        <button type="submit" className="btn btn-blue">
           Submit
         </button>
       </form>

@@ -19,17 +19,17 @@ function EditCard({ deck }) {
 
   const navBar = (
     <div>
-      <nav>
-        <ol>
-          <li>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="breadcrumb-item">
             <Link to={`/decks/${deckId}`} state={deck}>
               {deck.name}
             </Link>
           </li>
-          <li>Edit Card</li>
+          <li className="breadcrumb-item">Edit Card</li>
         </ol>
       </nav>
     </div>
@@ -39,7 +39,7 @@ function EditCard({ deck }) {
     <div>
       {navBar}
       <h1>Edit Card</h1>
-      <CardForm card={card} deckId={deckId} />
+      <CardForm card={card} deckId={deckId}/>
     </div>
   );
 }

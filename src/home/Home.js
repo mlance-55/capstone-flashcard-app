@@ -5,7 +5,7 @@ import DeckList from "./DeckList.js";
 //Home Page
 function Home({decks, setDecks}){
     return(
-        <div>
+        <div className="col">
             <Routes>
                 <Route path="" element={<DeckList decks={decks} setDecks={setDecks}/>}/>
             </Routes>

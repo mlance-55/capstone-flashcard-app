@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+.btn {
+  margin: 5px; 
+  background-color: #e7e7e7; color: black;
+  padding: 5px 10px;
+
+}
+
+.btn-red{
+  background-color: darkred;
+  color: white;
+}
+
+  .btn-blue{
+  background-color: blue;
+  color: white;
+  }
+
+.row {
+  justify-content: space-between;
+
+}
+
+.alignRight {
+  text-align: right;
+}
+
+label {
+
+  padding: 0 !important;
+}
+
+form {
+  text-align: left;
+
+  padding: 0 !important;
+  margin: 0;
+}
+
+input {
+  padding: 0 !important;
+}
+
+textarea {
+  padding: 0 !important;
+}
+
+.card{
+  margin-top: 20px;
+}

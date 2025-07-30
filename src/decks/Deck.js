@@ -36,16 +36,16 @@ function Deck({ decks, setDecks, deck, setDeck}) {
   //generate card list
   const cardsList = cards.map((card) => {
     return (
-      <div>
-        <div>
-          <p>{card.front}</p>
-          <p>{card.back}</p>
+      <div className="list-group-item">
+        <div className="row">
+          <p className="col">{card.front}</p>
+          <p className="col">{card.back}</p>
         </div>
-        <div>
-          <Link to={`cards/${card.id}/edit`}>
+        <div className="cardSubtitle">
+          <Link to={`cards/${card.id}/edit`} className="btn">
             Edit
           </Link>
-          <button onClick={() => HandleDeleteCard(card.id)}>Delete</button>
+          <button className="btn btn-red" onClick={() => HandleDeleteCard(card.id)}>Delete</button>
         </div>
       </div>
     );
@@ -58,12 +58,12 @@ function Deck({ decks, setDecks, deck, setDeck}) {
       try {
 
         setNavBar(
-          <nav>
-            <ol>
-              <li>
+          <nav aria-label="breadcrumb">
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item">
                 <Link to="/">Home</Link>
               </li>
-              <li>{deck.name}</li>
+              <li className="breadcrumb-item">{deck.name}</li>
             </ol>
           </nav>
         );
@@ -81,21 +81,21 @@ function Deck({ decks, setDecks, deck, setDeck}) {
           {navBar}
           <h1>{deck.name}</h1>
           <p>{deck.description}</p>
-          <div>
-            <div>
-              <Link to="edit">
+          <div className="row">
+            <div className="col">
+              <Link to="edit" className="btn">
                 Edit
               </Link>
-              <Link to="study">
+              <Link to="study" className="btn btn-blue">
                 Study
               </Link>
-              <Link to="cards/new">
+              <Link to="cards/new" className="btn">
                 Add Card
               </Link>
             </div>
             <div>
-              <div>
-                <button onClick={() => HandleDelete(deck.id, { setDecks }, navigate)}>
+              <div className="col">
+                <button onClick={() => HandleDelete(deck.id, { setDecks }, navigate)} className="btn btn-red">
                   Delete
                 </button>
               </div>

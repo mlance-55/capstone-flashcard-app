@@ -10,23 +10,23 @@ function DeckList({ decks, setDecks }) {
   const deckCards = decks.map((deck) => {
     return (
       <div key={deck.id}>
-        <div>
-          <h3>{deck.name}</h3>
-          <p>{deck.cards.length} cards</p>
+        <div className="row">
+          <h3 className="col">{deck.name}</h3>
+          <p className="col">{deck.cards.length} cards</p>
         </div>
 
         <p>{deck.description}</p>
-        <div>
-          <div>
-            <Link to={`/decks/${deck.id}`}>
+        <div className="row">
+          <div className="col">
+            <Link to={`/decks/${deck.id}`} className="btn">
               View
             </Link>
-            <Link to={`/decks/${deck.id}/study`}>
+            <Link to={`/decks/${deck.id}/study`}className="btn btn-blue">
               Study
             </Link>
           </div>
-          <div>
-            <button onClick={() => deleteHandler(deck.id, { setDecks }, navigate)}>
+          <div className="col">
+            <button onClick={() => deleteHandler(deck.id, { setDecks }, navigate)} className="btn btn-red">
               <span></span>
               Delete
             </button>
@@ -38,7 +38,7 @@ function DeckList({ decks, setDecks }) {
   
   return (
     <div>
-      <Link to="/decks/new">
+      <Link className="row btn"to="/decks/new">
         Create Deck
       </Link>
       <div key="deckList">
