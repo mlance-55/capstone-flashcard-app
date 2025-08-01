@@ -56,7 +56,7 @@ function CreateDeck({ setDecks }) {
       }
     }
     getDecks();
-  }, [handleSubmit]);
+  }, []);
 
   return (
     <div>

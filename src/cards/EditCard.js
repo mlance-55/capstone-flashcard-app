@@ -14,7 +14,7 @@ function EditCard({ deck }) {
       setCard(card);
     }
     getCard();
-  }, [deck]);
+  }, [cardId]);
 
 
   const navBar = (
