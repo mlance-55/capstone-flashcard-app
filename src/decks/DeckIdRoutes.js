@@ -13,7 +13,7 @@ function DeckIdRoutes({ decks, setDecks }) {
   const { deckId } = useParams();
 
   console.log(deckId);
-  const [deck, setDeck] = useState(null);
+  const [deck, setDeck] = useState({ name: "", description: "" });
 
   useEffect(() => {
     async function fetchDeck() {
