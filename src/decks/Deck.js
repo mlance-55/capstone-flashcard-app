@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate, useLocation } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import  HandleDelete from "../common/HandleDelete";
 import { deleteCard, readDeck, listDecks } from "../utils/api";
 
@@ -22,7 +22,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
       }
     }
     getCards();
-  }, [decks]);
+  }, [deckId]);
 
   //handle delete card
   async function HandleDeleteCard(id){
@@ -72,7 +72,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
       }
     }
     getNavBar();
-  }, [decks]);
+  }, [deck.name]);
 
   return (
     <div>

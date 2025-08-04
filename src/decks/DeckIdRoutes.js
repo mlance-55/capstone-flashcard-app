@@ -1,9 +1,8 @@
 import React from "react";
-import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Study from "./Study";
 import EditDeck from "./EditDeck";
-import CreateDeck from "./CreateDeck";
 import Deck from "./Deck";
 import Card from "../cards/Card";
 import NotFound from "../Layout/NotFound";
