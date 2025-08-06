@@ -8,7 +8,7 @@ function Study({ decks, setDecks }) {
   const { deckId } = useParams();
   const [cards, setCards] = useState([]); 
   const [deck, setDeck] = useState({});
-  const [currentCard, setCurrentCard] = useState({}); 
+  const [currentCard, setCurrentCard] = useState(null); 
   const [displayCard, setDisplayCard] = useState(""); 
   const [isFront, setIsFront] = useState(true);
   const cardsLength = cards.length; 
@@ -27,35 +27,31 @@ function Study({ decks, setDecks }) {
       }
     }
     getDeck();
-  }, [deckId]);
+  }, [deckId]); 
+
 
  //set currently displayed card
-  useEffect(() => {
-    if (cards.length >= 3 && currentCard) {
-      setDisplayCard(
-        <div>
-          {isFront ? (
-            <div>
-              <p>{currentCard.front}</p>
-              <button onClick={handleFlip} className="btn">
-                Flip
-              </button>
-            </div>
-          ) : (
-            <div>
-              <p>{currentCard.back}</p>
-              <button onClick={handleFlip} className="btn">
-                Flip
-              </button>
-              <button onClick={handleNext} className="btn">
-                Next
-              </button>
-            </div>
-          )}
-        </div>
-      );
-    }
-  }, [currentCard, isFront]);
+ function renderCard() {
+  if (!currentCard) return null;
+
+  return (
+    <div>
+       <h4>Card {cards.indexOf(currentCard) + 1} of {cards.length}</h4>
+  {isFront ? (
+    <div>
+      <p>{currentCard.front}</p>
+      <button onClick={handleFlip} className="btn">Flip</button>
+    </div>
+  ) : (
+    <div>
+      <p>{currentCard.back}</p>
+      <button onClick={handleFlip} className="btn">Flip</button>
+      <button onClick={handleNext} className="btn">Next</button>
+    </div>
+  )}
+    </div>
+  );
+}
 
 
   //not enough cards
@@ -81,9 +77,9 @@ function Study({ decks, setDecks }) {
           "Restart cards? Click cancel to return to the home page."
         )
       ) {
-        navigate("/");
-      } else {
         setCurrentCard(cards[0]);
+      } else {
+        navigate("/");
       }
     }
   }
@@ -114,18 +110,7 @@ function Study({ decks, setDecks }) {
     <div>
       {navBar}
       <h2>{deck.name}: Study</h2>
-      {cardsLength < 3 ? (
-        notEnoughCards
-      ) : (
-        <div>
-          <div>
-            <h5>
-              Card {cards.indexOf(currentCard) + 1} of {cards.length}
-            </h5>
-            <div>{displayCard}</div>
-          </div>
-        </div>
-      )}
+      {cardsLength < 3 ? notEnoughCards : renderCard()}
     </div>
   );
 }
