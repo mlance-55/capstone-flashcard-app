@@ -72,7 +72,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
       }
     }
     getNavBar();
-  }, [deck.name]);
+  }, [deck]);
 
   return (
     <div>
