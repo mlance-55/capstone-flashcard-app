@@ -6,7 +6,7 @@ import CardForm from "./CardForm";
 
 function EditCard({ deck }) {
   const { cardId, deckId } = useParams();
-  const [card, setCard] = useState({});
+  const [card, setCard] = useState(null);
 
   useEffect(() => {
     async function getCard() {
@@ -16,6 +16,9 @@ function EditCard({ deck }) {
     getCard();
   }, [cardId]);
 
+ if (!card) {
+    return <p>Loading...</p>;
+  }
 
   const navBar = (
     <div>

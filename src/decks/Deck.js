@@ -36,7 +36,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
   //generate card list
   const cardsList = cards.map((card) => {
     return (
-      <div className="list-group-item">
+      <div key={card.id} className="list-group-item">
         <div className="row">
           <p className="col">{card.front}</p>
           <p className="col">{card.back}</p>

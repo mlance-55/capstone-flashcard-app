@@ -26,7 +26,7 @@ function RootRoutes() {
       <Routes>
         <Route path="/" element={<Home decks={decks} setDecks={setDecks} />} />
         <Route path="/decks/*" element={<Decks decks={decks} setDecks={setDecks} />}/>
-        <Route path="/*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

@@ -10,11 +10,10 @@ function CardForm({ deckId, card }) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (card) {
-      setFront(card.front);
-      setBack(card.back);
-      console.log(`front: ${front} back: ${back}`);
-    }
+    if (card?.front !== undefined && card?.back !== undefined) {
+    setFront(card.front);
+    setBack(card.back);
+  }
   }, [card]);
 
   console.log(card);

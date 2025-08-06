@@ -27,7 +27,7 @@ function Study({ decks, setDecks }) {
       }
     }
     getDeck();
-  }, [decks]);
+  }, [deckId]);
 
  //set currently displayed card
   useEffect(() => {
