@@ -104,7 +104,7 @@ function Deck({ decks, setDecks, deck, setDeck}) {
         </div>
       )}
 
-      {/* Flashcards */}
+      {/* Flashcard */}
       <div>
         <div>{cardsList}</div>
       </div>
